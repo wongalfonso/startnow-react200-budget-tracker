@@ -13,7 +13,7 @@ export default class App extends React.Component {
         <div className='row'>
           <div className='col-12 col-md-6 mb-4'>
             <div className='card border-danger mb-3'>
-              <div className='card-header text-white bg-danger'>Income Entries</div>
+              <div className='card-header text-white bg-success'>Income Entries</div>
               <div className='card-body'>
                 <form>
                   <div className='form-group'>
@@ -37,7 +37,7 @@ export default class App extends React.Component {
                   </div>
                   <button
                     type='button'
-                    className='btn btn-danger col-12 mb-5'
+                    className='btn btn-success col-12 mb-5'
                   >+ Add Expense
                   </button>
                   <table className='table table-sm table-hover'>
@@ -49,7 +49,7 @@ export default class App extends React.Component {
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Rent</td>
+                        <td>Paycheck</td>
                         <td>$4,000.00</td>
                       </tr>
                     </tbody>
