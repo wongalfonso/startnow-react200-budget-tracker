@@ -3,6 +3,9 @@ import React from "react";
 export default class IncomeEntries extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      
+    }
   }
 
   render() {
@@ -44,8 +47,8 @@ export default class IncomeEntries extends React.Component {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Rent</td>
-                    <td>$1,500.00</td>
+                    <td>Paycheck</td>
+                    <td>$4,000.00</td>
                   </tr>
                 </tbody>  
               </table>

@@ -1,11 +1,38 @@
 import React from "react";
 
+import {
+  updateExpenseDescription,
+  updateExpenseAmount,
+  addExpense
+} from "./expenseActions";
+
 export default class ExpenseEntries extends React.Component {
   constructor(props) {
     super(props);
+    this.handleDescriptionInput = this.handleDescriptionInput.bind(this);
+    this.handleAmountInput = this.handleAmountInput.bind(this);
+    this.handleAddExpense = this.handleAddExpense.bind(this);
+  }
+
+  handleDescriptionInput(event) {
+    const {dispatch} = this.props;
+    const { value } = event.target;
+    dispatch(updateExpenseDescription(value));
+  }
+
+  handleAmountInput(event) {
+    const { dispatch } = this.props;
+    const { value } = event.target;
+    dispatch(updateExpenseDescription(value));
+  }
+
+  handleAddExpense() {
+    const { description, amount, dispatch } = this.props;
+    dispatch( addExpense( description, amount ));
   }
 
   render() {
+    const { description, amount, lineItems } = this.props;
     return (
       <div className = "card border-danger mb-3">
         <div className="card-header text-white bg-danger" >Expense Entries</div>
