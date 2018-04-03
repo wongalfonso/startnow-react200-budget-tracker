@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "React/Redux Budget Tracker",
   "main": "server/index.js",
+  "engines": {
+    "node": "8.x.x",
+    "npm": "5.x.x"
+  },
   "scripts": {
     "build": "npm run less && webpack",
     "start": "npm run build && node server/index.js",
