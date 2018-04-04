@@ -21,8 +21,6 @@ export default class ExpenseEntries extends React.Component {
   }
 
   handleAmountInput(event) {
-    // const amountInput = (event.target.validity.valid) ? event.target : "";
-    // console.log(amountInput)
     const { dispatch } = this.props;
     const { value } = event.target;
     dispatch(updateExpenseAmount(value));
@@ -78,13 +76,18 @@ export default class ExpenseEntries extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {
-                  lineItems.map(lineItem => (
-                  <tr>
-                    <td>{lineItem.description}</td>
-                    <td>{lineItem.amount.toFixed(2)}</td>
-                  </tr>
-                ))}
+              {
+                  lineItems.map((item, i) => {
+                    var desc = item.description != undefined ? item.description : 0;  
+                    var amt = item.amount != undefined ? item.amount : 0;                                                
+                    return (                  
+                    <tr key = {i}>
+                      <td >{desc}</td>
+                      <td >{amt.toFixed(2)}</td>                      
+                    </tr>
+                    )
+                  })
+                }
               </tbody>
             </table>
           </form>

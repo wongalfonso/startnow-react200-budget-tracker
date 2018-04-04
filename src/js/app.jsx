@@ -7,21 +7,20 @@ export default class App extends React.Component {
   render() {
     return (
       <div className='container'>
-        <div className = "hello">Hello World</div>
-        <div className='jumbotron' >
-          <h1 className='display-3 text-center'>Budget Tracker</h1>
+        <div className='jumbotron text-center display-3' >
+          <div className="budget">Budget Tracker</div>
         </div>
         <div className='row'>
           <div className='col-12 col-md-6 mb-4'>
-            <IncomeEntries/>
+            <IncomeEntries />
           </div>
           <div className='col-12 col-md-6 mb-4'>
-            <ExpenseEntries/>  
+            <ExpenseEntries />
           </div>
         </div>
         <div className='row justify-content-center'>
           <div className='col-12 col-md-6'>
-            <Summary/>
+            <Summary />
           </div>
         </div>
       </div>

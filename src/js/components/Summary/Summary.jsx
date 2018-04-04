@@ -22,9 +22,10 @@ function formatCurrency(amount) {
 class Summary extends React.Component {
   render() {
     const { incomeItems, expenseItems } = this.props;
-    const incomeTotal = calculateSum(incomeItems)/ 100;
-    const expenseTotal = calculateSum(expenseItems) / 100;
-    const difference = Math.round(incomeTotal - expenseTotal) / 100;
+    const incomeTotal = calculateSum(incomeItems);
+    // console.log("income=" + incomeItems);
+    const expenseTotal = calculateSum(expenseItems);
+    const difference = Math.round(incomeTotal - expenseTotal);
     
     return (
       <div className="card border-info mb-3">

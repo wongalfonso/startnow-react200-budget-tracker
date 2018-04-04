@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import {
   updateIncomeDescription,
@@ -22,7 +23,8 @@ export default class IncomeEntries extends React.Component {
 
   handleIncomeAmount(event) {
     const { dispatch } = this.props;
-    const { value } = event.target;
+    var { value } = event.target;
+    value = parseFloat(value);
     dispatch(updateIncomeAmount(value));
   }
 
@@ -33,7 +35,7 @@ export default class IncomeEntries extends React.Component {
   }
 
   render() {
-    const { description, amount, lineItems } = this.props;
+    const { description, amount, lineItems } = this.props;   
     return (
       <div className="card border-success mb-3">
         <div className="card-header text-white bg-success" >Income Entries</div>
@@ -53,7 +55,10 @@ export default class IncomeEntries extends React.Component {
               <div className="input-group">
                 <span className="input-group-addon">$</span>
                 <input
-                  type="text"
+                  type="number"
+                  min="1"
+                  // step="0.01"
+                  pattern = "^[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$"
                   className="form-control"
                   id="income-amount"
                   onChange={this.handleIncomeAmount}
@@ -74,13 +79,17 @@ export default class IncomeEntries extends React.Component {
                   <th style={{ width: 120 }}> Amount</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody>          
                 {
-                  lineItems.map(lineItem => {
-                    <tr>
-                      <td>{lineItem.description}</td>
-                      <td>{lineItem.amount.toFixed(2)}</td>
+                  lineItems.map((item, i) => {
+                    var desc = item.description != undefined ? item.description : 0;  
+                    var amt = item.amount != undefined ? item.amount : 0;                                               
+                    return (                  
+                    <tr key = {i}>
+                      <td >{desc}</td>
+                      <td >{amt.toFixed(2)}</td>                      
                     </tr>
+                    )
                   })
                 }
               </tbody>

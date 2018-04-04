@@ -1,10 +1,10 @@
 const defaultState = {
   description: "",
-  amount: "",
+  amount: 0,
   lineItems: []
 };
 
-export default function IncomeReducer (state= defaultState, action) {
+export default function IncomeReducer (state = defaultState, action) {
     const { type, payload } = action;
   
     switch (type) {
@@ -26,7 +26,7 @@ export default function IncomeReducer (state= defaultState, action) {
         const { description, amount } = action.payload;
         return {
           description: "",
-          action: "",
+          amount: 0,
           lineItems: [
             ...state.lineItems,
             {description, amount}
